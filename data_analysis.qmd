@@ -52,7 +52,7 @@ import seaborn as sns
 
 ```{python}
 
-df = pd.read_csv("/Users/cassielu/Downloads/lightcast_job_postings.csv")
+df = pd.read_csv("lightcast_job_postings.csv")
 
 # Display dataset summary
 
@@ -133,13 +133,19 @@ else:
 To ensure each job is counted only once, we remove duplicates based on job title, company, location, and posting date.
 
 ```{python}
+print("Existing columns in DataFrame:", df.columns.tolist())  # Display actual column names
 
-columns_to_check = ["title", "company", "location", "posted"]  # Corrected column names
+# Convert column names to lowercase for case-insensitive matching
+df.columns = df.columns.str.lower()
+
+columns_to_check = ["title", "company", "location", "posted"]
 existing_columns = [col for col in columns_to_check if col in df.columns]
+
+if not existing_columns:
+    raise ValueError("None of the specified columns exist in the DataFrame. Check column names!")
 
 print("Before removing duplicates:")
 print(df[existing_columns].head())
-
 
 df = df.drop_duplicates(subset=existing_columns, keep="first")
 
@@ -147,7 +153,6 @@ print("\nAfter removing duplicates:")
 print(df[existing_columns].head())
 
 print("\nDuplicates removed based on:", existing_columns)
-
 ```
 
 # Exploratory Data Analysis (EDA)
