@@ -167,6 +167,7 @@ print("Missing columns:", missing_cols)
 
 
 # Exploratory Data Analysis (EDA)
+
 EDA helps uncover patterns in job postings and salaries across industries. These insights assist job seekers in making informed career decisions.
 
 ## Job Postings by Industry
