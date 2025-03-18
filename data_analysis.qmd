@@ -28,6 +28,8 @@ bibliography: references.bib
 csl: csl/econometrica.csl
 format: 
   html:
+    code-fold:  true
+    code-tools: true
     toc: true
     number-sections: true
     df-print: paged
@@ -95,36 +97,39 @@ import missingno as msno
 import matplotlib.pyplot as plt
 
 # Visualize missing data
-msno.heatmap(df)
-plt.title("Missing Values Heatmap")
+# Identify columns with >10% missing values
+missing_threshold = 0.1  
+missing_cols = df.columns[df.isnull().mean() > missing_threshold]
+
+# Filter DataFrame
+df_missing = df[missing_cols]
+
+# Generate heatmap
+plt.figure(figsize=(12, 6))  
+
+msno.heatmap(df_missing)
+plt.title("Missing Values Heatmap (Filtered)")
 plt.show()
+
 
 # Drop columns with >50% missing values
 df.dropna(thresh=len(df) * 0.5, axis=1, inplace=True)
 
 # Fill missing values
 
-industry_cols = ["lightcast_sectors_name", "lightcast_sectors"]
-existing_industry_col = next((col for col in industry_cols if col in df.columns), None)
+df_original = pd.read_csv("lightcast_job_postings.csv")
 
-if existing_industry_col:
-    df[existing_industry_col].fillna("Unknown", inplace=True)
-else:
-    print("Warning: No industry-related column found in the dataset.")
+df["salary"] = df_original["salary"]
 
+salary_col = "salary" if "salary" in df.columns else None
 
-
-if "salary" in df.columns:
-    df["salary_avg"] = df["salary"]
-elif "salary_from" in df.columns and "salary_to" in df.columns:
-    df["salary_avg"] = df[["salary_from", "salary_to"]].mean(axis=1, skipna=True)
+if salary_col:
+    df[salary_col].fillna(df[salary_col].median(), inplace=True)
 else:
     print("Warning: No salary-related column found!")
 
 
-
-
-
+df["naics6_name"].fillna("Unknown", inplace=True)
 
 ```
 
@@ -133,6 +138,7 @@ else:
 To ensure each job is counted only once, we remove duplicates based on job title, company, location, and posting date.
 
 ```{python}
+
 print("Existing columns in DataFrame:", df.columns.tolist())  # Display actual column names
 
 # Convert column names to lowercase for case-insensitive matching
@@ -154,6 +160,11 @@ print(df[existing_columns].head())
 
 print("\nDuplicates removed based on:", existing_columns)
 ```
+original_cols = set(df_original.columns)
+processed_cols = set(df.columns)
+missing_cols = original_cols - processed_cols
+print("Missing columns:", missing_cols)
+
 
 # Exploratory Data Analysis (EDA)
 **Why these visualizations were chosen?**
@@ -168,16 +179,35 @@ The bar chart displays the distribution of job postings across different industr
 ```{python}
 
 import plotly.express as px
+import plotly.io as pio
 
-## Job postings by industry
+# Set Plotly renderer for Quarto or Jupyter
+pio.renderers.default = "iframe"
 
-industry_col = "lightcast_sectors_name" if "lightcast_sectors_name" in df.columns else None
+# Get top 20 industries by job postings
+top_n = 20
+industry_counts = df["naics6_name"].value_counts().nlargest(top_n).reset_index()
+industry_counts.columns = ["Industry", "Count"]
 
-if industry_col:
-    fig = px.bar(df[industry_col].value_counts(), title="Job Postings by Industry")
-    fig.show()
-else:
-    print("Warning: No valid industry column found.")
+# Create horizontal bar chart with a taller y-axis
+fig = px.bar(
+    industry_counts,
+    x="Industry",
+    y="Count",
+    title=f"Top {top_n} Job Postings by Industry (NAICS6)",
+    labels={"Industry": "Industry", "Count": "Number of Job Postings"}
+)
+
+# Extend y-axis and increase figure height
+fig.update_layout(
+    xaxis_title="Industry",
+    yaxis_title="Number of Job Postings",
+    yaxis=dict(range=[0, industry_counts["Count"].max() * 1.2]),  # Extend y-axis
+    height=1000  # Increase figure height for better spacing
+)
+
+fig.show()
+
 
 
 ```
@@ -189,11 +219,40 @@ The box plot visualizes salary distribution by industry, showcasing variations i
 
 ```{python}
 
-if industry_col:
-    fig = px.box(df, x=industry_col, y=salary, title="Salary Distribution by Industry")
-    fig.show()
-else:
-    print("Warning: Industry or salary column not found in dataset.")
+import plotly.express as px
+
+# Get top 20 industries by job postings
+top_n = 20
+top_industries = df["naics6_name"].value_counts().nlargest(top_n).index
+
+# Filter dataset for top industries
+df_filtered = df[df["naics6_name"].isin(top_industries)]
+
+# Create the box plot with an extended y-axis
+fig = px.box(
+    df_filtered,
+    x="naics6_name",
+    y="salary",
+    title=f"Salary Distribution in Top {top_n} Industries",
+    labels={"naics6_name": "Industry", "salary": "Salary ($)"},
+    points="all"  # Show all outliers
+)
+
+# Extend the y-axis
+fig.update_layout(
+    xaxis_title="Industry",
+    yaxis_title="Salary ($)",
+    yaxis=dict(range=[0, df_filtered["salary"].max() * 1.2]),  # Extend y-axis 20% above max salary
+    height=1000  # Increase figure height for better visibility
+)
+
+fig.show()
+
+
+
+
+
+
 
 ```
 
