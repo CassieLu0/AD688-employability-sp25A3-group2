@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This section presents a detailed data analysis of job market trends in 2024, focusing on AI-driven changes, salary disparities, and employment trends across different regions and industries.</p>
 <section id="data-import-and-cleaning" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="data-import-and-cleaning"><span class="header-section-number">1.1</span> Data Import and Cleaning</h2>
-<div id="c49071a4" class="cell" data-execution_count="1">
+<div id="af91577c" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="load-dataset" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Load dataset</h1>
-<div id="81cf6ebe" class="cell" data-execution_count="2">
+<div id="4809c2dc" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"lightcast_job_postings.csv"</span>)</span>
@@ -503,7 +503,7 @@ memory usage: 65.3+ MB</code></pre>
 <p><strong>Which columns should be dropped, and why?</strong></p>
 <p>The columns selected for removal are considered redundant because they either provide duplicate information, are unnecessary for analysis, or have more detailed equivalents in the dataset. For example, <code>"ID"</code> serves as a unique identifier but is often not needed for analysis, while <code>"URL"</code> and <code>"ACTIVE_URLS"</code> contain job posting links that are useful externally but not critical for data processing. Similarly, <code>"LAST_UPDATED_TIMESTAMP"</code> is dropped because <code>"LAST_UPDATED_DATE"</code> already provides update information in a more readable format. The <code>"DUPLICATES"</code> column, which likely flags repeated entries, is also removed since duplicates can be handled separately.</p>
 <p>Additionally, industry and occupational classification columns like <code>"NAICS2"</code> to <code>"NAICS6"</code> and <code>"SOC_2"</code>, <code>"SOC_3"</code>, <code>"SOC_5"</code> are removed because these represent different levels of classification, and more relevant or updated versions (e.g., <code>"NAICS_2022_2"</code> to <code>"NAICS_2022_6"</code>) are already present in the dataset. Removing these redundant columns helps streamline the dataset, making it more efficient to analyze without losing valuable information.</p>
-<div id="964c5f29" class="cell" data-execution_count="3">
+<div id="aeef8f84" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>columns_to_drop <span class="op">=</span> [</span>
@@ -692,7 +692,7 @@ memory usage: 65.3+ MB</code></pre>
 <h2 data-number="3.2" class="anchored" data-anchor-id="handle-missing-values"><span class="header-section-number">3.2</span> Handle Missing Values</h2>
 <p><strong>How should missing values be handled?</strong></p>
 <p>Missing values should be handled strategically based on their impact on analysis. First, visualizing missing data with a heatmap helps identify patterns and assess severity. Columns with more than 50% missing values are dropped to avoid unreliable or incomplete data. For numerical fields like <code>"Salary"</code>, filling missing values with the median ensures the data remains representative without being skewed by outliers. Categorical fields like <code>"Industry"</code> are filled with <code>"Unknown"</code> to maintain completeness while preserving interpretability. This approach balances data retention and accuracy, ensuring meaningful analysis without introducing bias.</p>
-<div id="aae692e9" class="cell" data-execution_count="4">
+<div id="c3e4b1d5" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> missingno <span class="im">as</span> msno</span>
@@ -748,7 +748,7 @@ memory usage: 65.3+ MB</code></pre>
 <section id="remove-duplicates" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="remove-duplicates"><span class="header-section-number">3.3</span> Remove Duplicates</h2>
 <p>To ensure each job is counted only once, we remove duplicates based on job title, company, location, and posting date.</p>
-<div id="ba010bcd" class="cell" data-execution_count="5">
+<div id="1280abd6" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Existing columns in DataFrame:"</span>, df.columns.tolist())  <span class="co"># Display actual column names</span></span>
@@ -812,13 +812,12 @@ Duplicates removed based on: ['title', 'company', 'location', 'posted']</code></
 </section>
 <section id="exploratory-data-analysis-eda" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Exploratory Data Analysis (EDA)</h1>
-<p><strong>Why these visualizations were chosen?</strong></p>
 <p>EDA helps uncover patterns in job postings and salaries across industries. These insights assist job seekers in making informed career decisions.</p>
 <section id="job-postings-by-industry" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="job-postings-by-industry"><span class="header-section-number">4.1</span> Job Postings by Industry</h2>
 <p><strong>Why this visualization?</strong></p>
 <p>The bar chart displays the distribution of job postings across different industries, helping identify which sectors have the most opportunities. This allows for a quick comparison of industry demand and can highlight trends in job availability.</p>
-<div id="7499ca2b" class="cell" data-execution_count="6">
+<div id="0f2221fc" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
@@ -860,7 +859,7 @@ Duplicates removed based on: ['title', 'company', 'location', 'posted']</code></
 <h2 data-number="4.2" class="anchored" data-anchor-id="salary-distribution-by-industry"><span class="header-section-number">4.2</span> Salary Distribution by Industry</h2>
 <p><strong>Why this visualization?</strong></p>
 <p>The box plot visualizes salary distribution by industry, showcasing variations in compensation and identifying potential outliers. This helps compare earnings across different sectors and assess salary disparities within the job market.</p>
-<div id="e06338e5" class="cell" data-execution_count="7">
+<div id="b6e56a68" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
@@ -901,7 +900,7 @@ Duplicates removed based on: ['title', 'company', 'location', 'posted']</code></
 <h2 data-number="4.3" class="anchored" data-anchor-id="remote-vs.-on-site-jobs"><span class="header-section-number">4.3</span> Remote vs.&nbsp;On-Site Jobs</h2>
 <p><strong>Why this visualization?</strong></p>
 <p>The pie chart illustrates the proportion of remote versus on-site jobs, providing insights into workplace flexibility. It helps understand the prevalence of remote work and how job location preferences are shifting in the job market.</p>
-<div id="d295ddb3" class="cell" data-execution_count="8">
+<div id="915ecf33" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.pie(df, names<span class="op">=</span><span class="st">"remote_type_name"</span>, title<span class="op">=</span><span class="st">"Remote vs. On-Site Jobs"</span>)</span>
@@ -1557,108 +1556,106 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-174"><a href="#cb13-174" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-175"><a href="#cb13-175" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-176"><a href="#cb13-176" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exploratory Data Analysis (EDA)</span></span>
-<span id="cb13-177"><a href="#cb13-177" aria-hidden="true" tabindex="-1"></a>**Why these visualizations were chosen?**</span>
-<span id="cb13-178"><a href="#cb13-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-179"><a href="#cb13-179" aria-hidden="true" tabindex="-1"></a>EDA helps uncover patterns in job postings and salaries across industries. These insights assist job seekers in making informed career decisions.</span>
-<span id="cb13-180"><a href="#cb13-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-181"><a href="#cb13-181" aria-hidden="true" tabindex="-1"></a><span class="fu">## Job Postings by Industry</span></span>
-<span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a>**Why this visualization?**</span>
-<span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a>The bar chart displays the distribution of job postings across different industries, helping identify which sectors have the most opportunities. This allows for a quick comparison of industry demand and can highlight trends in job availability.</span>
-<span id="cb13-185"><a href="#cb13-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-188"><a href="#cb13-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb13-189"><a href="#cb13-189" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
-<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
-<span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a><span class="co"># Set Plotly renderer for Quarto or Jupyter</span></span>
-<span id="cb13-193"><a href="#cb13-193" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">"iframe"</span></span>
-<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-195"><a href="#cb13-195" aria-hidden="true" tabindex="-1"></a><span class="co"># Get top 20 industries by job postings</span></span>
-<span id="cb13-196"><a href="#cb13-196" aria-hidden="true" tabindex="-1"></a>top_n <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb13-197"><a href="#cb13-197" aria-hidden="true" tabindex="-1"></a>industry_counts <span class="op">=</span> df[<span class="st">"naics6_name"</span>].value_counts().nlargest(top_n).reset_index()</span>
-<span id="cb13-198"><a href="#cb13-198" aria-hidden="true" tabindex="-1"></a>industry_counts.columns <span class="op">=</span> [<span class="st">"Industry"</span>, <span class="st">"Count"</span>]</span>
-<span id="cb13-199"><a href="#cb13-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-200"><a href="#cb13-200" aria-hidden="true" tabindex="-1"></a><span class="co"># Create horizontal bar chart with a taller y-axis</span></span>
-<span id="cb13-201"><a href="#cb13-201" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(</span>
-<span id="cb13-202"><a href="#cb13-202" aria-hidden="true" tabindex="-1"></a>    industry_counts,</span>
-<span id="cb13-203"><a href="#cb13-203" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Industry"</span>,</span>
-<span id="cb13-204"><a href="#cb13-204" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Count"</span>,</span>
-<span id="cb13-205"><a href="#cb13-205" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f"Top </span><span class="sc">{</span>top_n<span class="sc">}</span><span class="ss"> Job Postings by Industry (NAICS6)"</span>,</span>
-<span id="cb13-206"><a href="#cb13-206" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>{<span class="st">"Industry"</span>: <span class="st">"Industry"</span>, <span class="st">"Count"</span>: <span class="st">"Number of Job Postings"</span>}</span>
-<span id="cb13-207"><a href="#cb13-207" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-208"><a href="#cb13-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a><span class="co"># Extend y-axis and increase figure height</span></span>
-<span id="cb13-210"><a href="#cb13-210" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
-<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"Industry"</span>,</span>
-<span id="cb13-212"><a href="#cb13-212" aria-hidden="true" tabindex="-1"></a>    yaxis_title<span class="op">=</span><span class="st">"Number of Job Postings"</span>,</span>
-<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a>    yaxis<span class="op">=</span><span class="bu">dict</span>(<span class="bu">range</span><span class="op">=</span>[<span class="dv">0</span>, industry_counts[<span class="st">"Count"</span>].<span class="bu">max</span>() <span class="op">*</span> <span class="fl">1.2</span>]),  <span class="co"># Extend y-axis</span></span>
-<span id="cb13-214"><a href="#cb13-214" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">1000</span>  <span class="co"># Increase figure height for better spacing</span></span>
-<span id="cb13-215"><a href="#cb13-215" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-216"><a href="#cb13-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-217"><a href="#cb13-217" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
+<span id="cb13-177"><a href="#cb13-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-178"><a href="#cb13-178" aria-hidden="true" tabindex="-1"></a>EDA helps uncover patterns in job postings and salaries across industries. These insights assist job seekers in making informed career decisions.</span>
+<span id="cb13-179"><a href="#cb13-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-180"><a href="#cb13-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## Job Postings by Industry</span></span>
+<span id="cb13-181"><a href="#cb13-181" aria-hidden="true" tabindex="-1"></a>**Why this visualization?**</span>
+<span id="cb13-182"><a href="#cb13-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-183"><a href="#cb13-183" aria-hidden="true" tabindex="-1"></a>The bar chart displays the distribution of job postings across different industries, helping identify which sectors have the most opportunities. This allows for a quick comparison of industry demand and can highlight trends in job availability.</span>
+<span id="cb13-184"><a href="#cb13-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-187"><a href="#cb13-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb13-188"><a href="#cb13-188" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb13-189"><a href="#cb13-189" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
+<span id="cb13-190"><a href="#cb13-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-191"><a href="#cb13-191" aria-hidden="true" tabindex="-1"></a><span class="co"># Set Plotly renderer for Quarto or Jupyter</span></span>
+<span id="cb13-192"><a href="#cb13-192" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">"iframe"</span></span>
+<span id="cb13-193"><a href="#cb13-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-194"><a href="#cb13-194" aria-hidden="true" tabindex="-1"></a><span class="co"># Get top 20 industries by job postings</span></span>
+<span id="cb13-195"><a href="#cb13-195" aria-hidden="true" tabindex="-1"></a>top_n <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb13-196"><a href="#cb13-196" aria-hidden="true" tabindex="-1"></a>industry_counts <span class="op">=</span> df[<span class="st">"naics6_name"</span>].value_counts().nlargest(top_n).reset_index()</span>
+<span id="cb13-197"><a href="#cb13-197" aria-hidden="true" tabindex="-1"></a>industry_counts.columns <span class="op">=</span> [<span class="st">"Industry"</span>, <span class="st">"Count"</span>]</span>
+<span id="cb13-198"><a href="#cb13-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-199"><a href="#cb13-199" aria-hidden="true" tabindex="-1"></a><span class="co"># Create horizontal bar chart with a taller y-axis</span></span>
+<span id="cb13-200"><a href="#cb13-200" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(</span>
+<span id="cb13-201"><a href="#cb13-201" aria-hidden="true" tabindex="-1"></a>    industry_counts,</span>
+<span id="cb13-202"><a href="#cb13-202" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"Industry"</span>,</span>
+<span id="cb13-203"><a href="#cb13-203" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"Count"</span>,</span>
+<span id="cb13-204"><a href="#cb13-204" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f"Top </span><span class="sc">{</span>top_n<span class="sc">}</span><span class="ss"> Job Postings by Industry (NAICS6)"</span>,</span>
+<span id="cb13-205"><a href="#cb13-205" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>{<span class="st">"Industry"</span>: <span class="st">"Industry"</span>, <span class="st">"Count"</span>: <span class="st">"Number of Job Postings"</span>}</span>
+<span id="cb13-206"><a href="#cb13-206" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-207"><a href="#cb13-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-208"><a href="#cb13-208" aria-hidden="true" tabindex="-1"></a><span class="co"># Extend y-axis and increase figure height</span></span>
+<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
+<span id="cb13-210"><a href="#cb13-210" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"Industry"</span>,</span>
+<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a>    yaxis_title<span class="op">=</span><span class="st">"Number of Job Postings"</span>,</span>
+<span id="cb13-212"><a href="#cb13-212" aria-hidden="true" tabindex="-1"></a>    yaxis<span class="op">=</span><span class="bu">dict</span>(<span class="bu">range</span><span class="op">=</span>[<span class="dv">0</span>, industry_counts[<span class="st">"Count"</span>].<span class="bu">max</span>() <span class="op">*</span> <span class="fl">1.2</span>]),  <span class="co"># Extend y-axis</span></span>
+<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">1000</span>  <span class="co"># Increase figure height for better spacing</span></span>
+<span id="cb13-214"><a href="#cb13-214" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-215"><a href="#cb13-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-216"><a href="#cb13-216" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
+<span id="cb13-217"><a href="#cb13-217" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-218"><a href="#cb13-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-219"><a href="#cb13-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-219"><a href="#cb13-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-220"><a href="#cb13-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-221"><a href="#cb13-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-222"><a href="#cb13-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-223"><a href="#cb13-223" aria-hidden="true" tabindex="-1"></a><span class="fu">## Salary Distribution by Industry</span></span>
-<span id="cb13-224"><a href="#cb13-224" aria-hidden="true" tabindex="-1"></a>**Why this visualization?**</span>
+<span id="cb13-221"><a href="#cb13-221" aria-hidden="true" tabindex="-1"></a><span class="fu">## Salary Distribution by Industry</span></span>
+<span id="cb13-222"><a href="#cb13-222" aria-hidden="true" tabindex="-1"></a>**Why this visualization?**</span>
+<span id="cb13-223"><a href="#cb13-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-224"><a href="#cb13-224" aria-hidden="true" tabindex="-1"></a>The box plot visualizes salary distribution by industry, showcasing variations in compensation and identifying potential outliers. This helps compare earnings across different sectors and assess salary disparities within the job market.</span>
 <span id="cb13-225"><a href="#cb13-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-226"><a href="#cb13-226" aria-hidden="true" tabindex="-1"></a>The box plot visualizes salary distribution by industry, showcasing variations in compensation and identifying potential outliers. This helps compare earnings across different sectors and assess salary disparities within the job market.</span>
-<span id="cb13-227"><a href="#cb13-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-230"><a href="#cb13-230" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb13-231"><a href="#cb13-231" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
-<span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a><span class="co"># Get top 20 industries by job postings</span></span>
-<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a>top_n <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb13-235"><a href="#cb13-235" aria-hidden="true" tabindex="-1"></a>top_industries <span class="op">=</span> df[<span class="st">"naics6_name"</span>].value_counts().nlargest(top_n).index</span>
-<span id="cb13-236"><a href="#cb13-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-237"><a href="#cb13-237" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter dataset for top industries</span></span>
-<span id="cb13-238"><a href="#cb13-238" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="op">=</span> df[df[<span class="st">"naics6_name"</span>].isin(top_industries)]</span>
-<span id="cb13-239"><a href="#cb13-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-240"><a href="#cb13-240" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the box plot with an extended y-axis</span></span>
-<span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.box(</span>
-<span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a>    df_filtered,</span>
-<span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"naics6_name"</span>,</span>
-<span id="cb13-244"><a href="#cb13-244" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"salary"</span>,</span>
-<span id="cb13-245"><a href="#cb13-245" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f"Salary Distribution in Top </span><span class="sc">{</span>top_n<span class="sc">}</span><span class="ss"> Industries"</span>,</span>
-<span id="cb13-246"><a href="#cb13-246" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>{<span class="st">"naics6_name"</span>: <span class="st">"Industry"</span>, <span class="st">"salary"</span>: <span class="st">"Salary ($)"</span>},</span>
-<span id="cb13-247"><a href="#cb13-247" aria-hidden="true" tabindex="-1"></a>    points<span class="op">=</span><span class="st">"all"</span>  <span class="co"># Show all outliers</span></span>
-<span id="cb13-248"><a href="#cb13-248" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-249"><a href="#cb13-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-250"><a href="#cb13-250" aria-hidden="true" tabindex="-1"></a><span class="co"># Extend the y-axis</span></span>
-<span id="cb13-251"><a href="#cb13-251" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
-<span id="cb13-252"><a href="#cb13-252" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"Industry"</span>,</span>
-<span id="cb13-253"><a href="#cb13-253" aria-hidden="true" tabindex="-1"></a>    yaxis_title<span class="op">=</span><span class="st">"Salary ($)"</span>,</span>
-<span id="cb13-254"><a href="#cb13-254" aria-hidden="true" tabindex="-1"></a>    yaxis<span class="op">=</span><span class="bu">dict</span>(<span class="bu">range</span><span class="op">=</span>[<span class="dv">0</span>, df_filtered[<span class="st">"salary"</span>].<span class="bu">max</span>() <span class="op">*</span> <span class="fl">1.2</span>]),  <span class="co"># Extend y-axis 20% above max salary</span></span>
-<span id="cb13-255"><a href="#cb13-255" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">1000</span>  <span class="co"># Increase figure height for better visibility</span></span>
-<span id="cb13-256"><a href="#cb13-256" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-228"><a href="#cb13-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb13-229"><a href="#cb13-229" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb13-230"><a href="#cb13-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-231"><a href="#cb13-231" aria-hidden="true" tabindex="-1"></a><span class="co"># Get top 20 industries by job postings</span></span>
+<span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a>top_n <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a>top_industries <span class="op">=</span> df[<span class="st">"naics6_name"</span>].value_counts().nlargest(top_n).index</span>
+<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-235"><a href="#cb13-235" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter dataset for top industries</span></span>
+<span id="cb13-236"><a href="#cb13-236" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="op">=</span> df[df[<span class="st">"naics6_name"</span>].isin(top_industries)]</span>
+<span id="cb13-237"><a href="#cb13-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-238"><a href="#cb13-238" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the box plot with an extended y-axis</span></span>
+<span id="cb13-239"><a href="#cb13-239" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.box(</span>
+<span id="cb13-240"><a href="#cb13-240" aria-hidden="true" tabindex="-1"></a>    df_filtered,</span>
+<span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"naics6_name"</span>,</span>
+<span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"salary"</span>,</span>
+<span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f"Salary Distribution in Top </span><span class="sc">{</span>top_n<span class="sc">}</span><span class="ss"> Industries"</span>,</span>
+<span id="cb13-244"><a href="#cb13-244" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>{<span class="st">"naics6_name"</span>: <span class="st">"Industry"</span>, <span class="st">"salary"</span>: <span class="st">"Salary ($)"</span>},</span>
+<span id="cb13-245"><a href="#cb13-245" aria-hidden="true" tabindex="-1"></a>    points<span class="op">=</span><span class="st">"all"</span>  <span class="co"># Show all outliers</span></span>
+<span id="cb13-246"><a href="#cb13-246" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-247"><a href="#cb13-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-248"><a href="#cb13-248" aria-hidden="true" tabindex="-1"></a><span class="co"># Extend the y-axis</span></span>
+<span id="cb13-249"><a href="#cb13-249" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
+<span id="cb13-250"><a href="#cb13-250" aria-hidden="true" tabindex="-1"></a>    xaxis_title<span class="op">=</span><span class="st">"Industry"</span>,</span>
+<span id="cb13-251"><a href="#cb13-251" aria-hidden="true" tabindex="-1"></a>    yaxis_title<span class="op">=</span><span class="st">"Salary ($)"</span>,</span>
+<span id="cb13-252"><a href="#cb13-252" aria-hidden="true" tabindex="-1"></a>    yaxis<span class="op">=</span><span class="bu">dict</span>(<span class="bu">range</span><span class="op">=</span>[<span class="dv">0</span>, df_filtered[<span class="st">"salary"</span>].<span class="bu">max</span>() <span class="op">*</span> <span class="fl">1.2</span>]),  <span class="co"># Extend y-axis 20% above max salary</span></span>
+<span id="cb13-253"><a href="#cb13-253" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">1000</span>  <span class="co"># Increase figure height for better visibility</span></span>
+<span id="cb13-254"><a href="#cb13-254" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-255"><a href="#cb13-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-256"><a href="#cb13-256" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
 <span id="cb13-257"><a href="#cb13-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-258"><a href="#cb13-258" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
+<span id="cb13-258"><a href="#cb13-258" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-259"><a href="#cb13-259" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-260"><a href="#cb13-260" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-261"><a href="#cb13-261" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-262"><a href="#cb13-262" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-263"><a href="#cb13-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-264"><a href="#cb13-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-264"><a href="#cb13-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-265"><a href="#cb13-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-266"><a href="#cb13-266" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb13-267"><a href="#cb13-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-268"><a href="#cb13-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## Remote vs. On-Site Jobs</span></span>
-<span id="cb13-269"><a href="#cb13-269" aria-hidden="true" tabindex="-1"></a>**Why this visualization?**</span>
+<span id="cb13-266"><a href="#cb13-266" aria-hidden="true" tabindex="-1"></a><span class="fu">## Remote vs. On-Site Jobs</span></span>
+<span id="cb13-267"><a href="#cb13-267" aria-hidden="true" tabindex="-1"></a>**Why this visualization?**</span>
+<span id="cb13-268"><a href="#cb13-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-269"><a href="#cb13-269" aria-hidden="true" tabindex="-1"></a>The pie chart illustrates the proportion of remote versus on-site jobs, providing insights into workplace flexibility. It helps understand the prevalence of remote work and how job location preferences are shifting in the job market.</span>
 <span id="cb13-270"><a href="#cb13-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-271"><a href="#cb13-271" aria-hidden="true" tabindex="-1"></a>The pie chart illustrates the proportion of remote versus on-site jobs, providing insights into workplace flexibility. It helps understand the prevalence of remote work and how job location preferences are shifting in the job market.</span>
-<span id="cb13-272"><a href="#cb13-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-275"><a href="#cb13-275" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb13-276"><a href="#cb13-276" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.pie(df, names<span class="op">=</span><span class="st">"remote_type_name"</span>, title<span class="op">=</span><span class="st">"Remote vs. On-Site Jobs"</span>)</span>
-<span id="cb13-277"><a href="#cb13-277" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
+<span id="cb13-273"><a href="#cb13-273" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb13-274"><a href="#cb13-274" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.pie(df, names<span class="op">=</span><span class="st">"remote_type_name"</span>, title<span class="op">=</span><span class="st">"Remote vs. On-Site Jobs"</span>)</span>
+<span id="cb13-275"><a href="#cb13-275" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
+<span id="cb13-276"><a href="#cb13-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-277"><a href="#cb13-277" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb13-278"><a href="#cb13-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-279"><a href="#cb13-279" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb13-279"><a href="#cb13-279" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-280"><a href="#cb13-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-281"><a href="#cb13-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-282"><a href="#cb13-282" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-283"><a href="#cb13-283" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
-<span id="cb13-284"><a href="#cb13-284" aria-hidden="true" tabindex="-1"></a>This analysis provides insights into the evolving job market in 2024, highlighting AI's impact, salary trends, and employment disparities. The findings indicate how different disciplines benefit from AI's rise, with certain fields seeing more substantial salary growth. Further analysis will explore regional job differences and future career recommendations.</span>
+<span id="cb13-281"><a href="#cb13-281" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb13-282"><a href="#cb13-282" aria-hidden="true" tabindex="-1"></a>This analysis provides insights into the evolving job market in 2024, highlighting AI's impact, salary trends, and employment disparities. The findings indicate how different disciplines benefit from AI's rise, with certain fields seeing more substantial salary growth. Further analysis will explore regional job differences and future career recommendations.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
