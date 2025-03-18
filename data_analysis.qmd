@@ -170,7 +170,7 @@ EDA helps uncover patterns in job postings and salaries across industries. These
 ## Job Postings by Industry
 **Why this visualization?**
 
-This bar chart helps identify which industries have the highest number of job postings. It provides insights into industry demand, helping job seekers target sectors with more opportunities
+This bar chart helps identify which industries have the highest number of job postings. It provides insights into industry demand, helping job seekers target sectors with more opportunities.
 
 ```{python}
 
@@ -209,7 +209,7 @@ fig.show()
 **Insights** 
 
 Custom Computer Programming Services, Administrative Management, and Employment Placement Agencies have the highest job postings, indicating strong demand in tech, consulting, and staffing sectors. Computer Systems Design and Commercial Banking also show significant job availability, reflecting growth in IT and finance.
-Unclassified Industry has the highest count, which may indicate miscategorized job postings or emerging sectors not yet classified. Other industries like Commercial Banking, Health Insurance, and Educational Services also show moderate job availability
+Unclassified Industry has the highest count, which may indicate miscategorized job postings or emerging sectors not yet classified. Other industries like Commercial Banking, Health Insurance, and Educational Services also show moderate job availability.
 
 
 
@@ -253,7 +253,7 @@ fig.show()
 ```
 **Insights**
 
-Commercial Banking and Tech-related industries show wide salary ranges, indicating opportunities for growth. Temporary Help Services has the lowest pay, reflecting short-term or contract roles. Tech and finance roles offer both high salaries and significant growth potential
+Commercial Banking and Tech-related industries show wide salary ranges, indicating opportunities for growth. Temporary Help Services has the lowest pay, reflecting short-term or contract roles. Tech and finance roles offer both high salaries and significant growth potential.
 
 
 
@@ -270,7 +270,7 @@ fig.show()
 ```
 **Insights**
 
-Majority of jobs are not explicitly classified (~78.3%), which may indicate missing or unspecified remote work details in job postings. Only 17% of jobs are fully remote, suggesting that while remote work exists, it is not yet dominant in most industries. Hybrid remote jobs (3.11%) are emerging, but still a small percentage. This indicates a slow transition toward flexible work models. On-site jobs remain the norm (1.58% explicitly labeled as "Not Remote"), reinforcing that many industries still require physical presence. Remote opportunities exist but are limited, meaning job seekers should target specific industries or roles for remote work
+Majority of jobs are not explicitly classified (~78.3%), which may indicate missing or unspecified remote work details in job postings. Only 17% of jobs are fully remote, suggesting that while remote work exists, it is not yet dominant in most industries. Hybrid remote jobs (3.11%) are emerging, but still a small percentage. This indicates a slow transition toward flexible work models. On-site jobs remain the norm (1.58% explicitly labeled as "Not Remote"), reinforcing that many industries still require physical presence. Remote opportunities exist but are limited, meaning job seekers should target specific industries or roles for remote work.
 
 
 ## Conclusion
