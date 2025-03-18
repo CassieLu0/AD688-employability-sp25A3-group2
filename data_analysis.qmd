@@ -159,11 +159,8 @@ print("\nAfter removing duplicates:")
 print(df[existing_columns].head())
 
 print("\nDuplicates removed based on:", existing_columns)
+
 ```
-original_cols = set(df_original.columns)
-processed_cols = set(df.columns)
-missing_cols = original_cols - processed_cols
-print("Missing columns:", missing_cols)
 
 
 # Exploratory Data Analysis (EDA)
@@ -173,7 +170,7 @@ EDA helps uncover patterns in job postings and salaries across industries. These
 ## Job Postings by Industry
 **Why this visualization?**
 
-The bar chart displays the distribution of job postings across different industries, helping identify which sectors have the most opportunities. This allows for a quick comparison of industry demand and can highlight trends in job availability.
+This bar chart helps identify which industries have the highest number of job postings. It provides insights into industry demand, helping job seekers target sectors with more opportunities
 
 ```{python}
 
@@ -209,11 +206,17 @@ fig.show()
 
 
 ```
+**Insights** 
+
+Custom Computer Programming Services, Administrative Management, and Employment Placement Agencies have the highest job postings, indicating strong demand in tech, consulting, and staffing sectors. Computer Systems Design and Commercial Banking also show significant job availability, reflecting growth in IT and finance.
+Unclassified Industry has the highest count, which may indicate miscategorized job postings or emerging sectors not yet classified. Other industries like Commercial Banking, Health Insurance, and Educational Services also show moderate job availability
+
+
 
 ## Salary Distribution by Industry
 **Why this visualization?**
 
-The box plot visualizes salary distribution by industry, showcasing variations in compensation and identifying potential outliers. This helps compare earnings across different sectors and assess salary disparities within the job market.
+This box plot is used to analyze salary distribution across the top 20 industries. It helps compare median salaries, salary variability, and outliers, which is crucial for understanding income potential in different fields.
 
 ```{python}
 
@@ -247,17 +250,17 @@ fig.update_layout(
 fig.show()
 
 
-
-
-
-
-
 ```
+**Insights**
+
+Commercial Banking and Tech-related industries show wide salary ranges, indicating opportunities for growth. Temporary Help Services has the lowest pay, reflecting short-term or contract roles. Tech and finance roles offer both high salaries and significant growth potential
+
+
 
 ## Remote vs. On-Site Jobs
 **Why this visualization?**
 
-The pie chart illustrates the proportion of remote versus on-site jobs, providing insights into workplace flexibility. It helps understand the prevalence of remote work and how job location preferences are shifting in the job market.
+This pie chart compares the distribution of remote, hybrid, and on-site jobs, showing workplace flexibility trends. It helps job seekers understand how common remote opportunities are in the current job market.
 
 ```{python}
 
@@ -265,7 +268,9 @@ fig = px.pie(df, names="remote_type_name", title="Remote vs. On-Site Jobs")
 fig.show()
 
 ```
+**Insights**
 
+Majority of jobs are not explicitly classified (~78.3%), which may indicate missing or unspecified remote work details in job postings. Only 17% of jobs are fully remote, suggesting that while remote work exists, it is not yet dominant in most industries. Hybrid remote jobs (3.11%) are emerging, but still a small percentage. This indicates a slow transition toward flexible work models. On-site jobs remain the norm (1.58% explicitly labeled as "Not Remote"), reinforcing that many industries still require physical presence. Remote opportunities exist but are limited, meaning job seekers should target specific industries or roles for remote work
 
 
 ## Conclusion
