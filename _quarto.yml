@@ -7,8 +7,6 @@ website:
     left:
       - href: index.qmd
         text: "Home"
-      - href: introduction.qmd
-        text: "Introduction"
       - href: data_analysis.ipynb
         text: "Exploratory Data Analysis"
       - href: skill_gap_analysis.ipynb
