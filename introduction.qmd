@@ -1,0 +1,19 @@
+---
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Introduction"
+  navbar:
+    left:
+      - href: introduction.qmd
+        text: Home
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+---
+
+Welcome to our comprehensive analysis of the 2024 job market trends, with a focus on the transformative impact of AI, salary disparities, and evolving employment patterns across various regions and industries. This website presents an in-depth exploration of job market data, including detailed insights into industry shifts, regional differences, and emerging skill demands. Additionally, we provide a thorough skill gap analysis, helping to bridge the divide between current team capabilities and the rapidly changing requirements of the IT job market. Join us in exploring how data-driven insights can shape career paths and workforce strategies in the modern job landscape.
