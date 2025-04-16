@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ling Lu">
 <meta name="author" content="Luoyan Zhang">
 <meta name="author" content="Yinuo Wang">
+<meta name="dcterms.date" content="2025-02-06">
 
-<title>2024 Job Trends – Job Trends 2024</title>
+<title>2024 Job Trends – Job Market Analysis 2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +24,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -38,7 +58,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-1092c56c6cadf2eb47b1bc8063ab382a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-4f17641596142cbde708c01b3a465e62.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-991b3836a482b2004fac36c162086f17.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -73,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -81,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Job Trends 2024</span>
+    <span class="navbar-title">Job Market Analysis 2024</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -94,6 +114,26 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./introduction.html"> 
+<span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./data_analysis.html"> 
+<span class="menu-text">Exploratory Data Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./skill_gap_analysis.html"> 
+<span class="menu-text">Skill Gap Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ml_methods.qmd/ipynb"> 
+<span class="menu-text">ML Methods</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./nlp_methods.qmd/ipynb"> 
+<span class="menu-text">NLP Methods</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -105,7 +145,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#research-rationale" id="toc-research-rationale" class="nav-link" data-scroll-target="#research-rationale">Research Rationale</a></li>
+  <li><a href="#brief-literature-review" id="toc-brief-literature-review" class="nav-link" data-scroll-target="#brief-literature-review">Brief Literature Review</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -130,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
+      <p class="date">February 6, 2025</p>
     </div>
   </div>
   
@@ -145,18 +196,33 @@ ul.task-list li input[type="checkbox"] {
 <p>Welcome to the 2024 Job Trends Analysis</p>
 <p>This website provides an in-depth analysis of job trends for 2024 based on the latest available dataset. Below you will find an overview of the data, key insights, and interactive visualizations that reveal:</p>
 <ul>
-<li>Employment Patterns:** How various industries are performing.</li>
+<li>Employment Patterns: How various industries are performing.</li>
 <li>Job Demand: Trends in job postings and market demands.</li>
 <li>Regional Variations: How different regions are impacted.</li>
 </ul>
 <p>About the Data</p>
 <p>The dataset for 2024 has been carefully curated and cleaned to ensure reliable insights. It includes data on:</p>
 <ul>
-<li>Job Postings:** Information on new job openings.</li>
-<li>Industry Sectors:** Detailed breakdowns by sector.</li>
-<li>Location Data:** Regional trends and statistics.</li>
+<li>Job Postings: Information on new job openings.</li>
+<li>Industry Sectors: Detailed breakdowns by sector.</li>
+<li>Location Data: Regional trends and statistics.</li>
 </ul>
-<p>Feel free to explore the site and learn more about the evolving job market.</p>
+<p>Focus Topic: Geographic and Remote Work Analysis</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The job market in 2024 is currently on a significant transformation, driven by the rise of artificial intelligence (AI) and evolving remote work trends. As AI-driven roles expand, traditional career paths are shifting. This creates new opportunities and challenges across different industries and geographic locations. Thus, the flexibility of remote work is reshaping where professionals live and how companies hire. Understanding “Geographic and Remote Work Analysis” is crucial for businesses, policymakers, and job seekers navigating the changing employment landscape.</p>
+</section>
+<section id="research-rationale" class="level2">
+<h2 class="anchored" data-anchor-id="research-rationale">Research Rationale</h2>
+<p>This study analyzes job market trends using the dataset job-market-analysis-2024, focusing on three key areas: 1. Geographic Distribution of AI vs.&nbsp;Non-AI Job Growth Identifying which cities and states are experiencing the highest job growth in AI-driven careers versus traditional roles. Examining how AI adoption is impacting job availability across different industries and regions. 2. Remote Work Trends Across Industries Investigating whether remote job opportunities are increasing or declining in various sectors. Analyzing how hybrid work models affect hiring patterns and employee mobility. 3. The Evolution of Tech Hubs and Regional Job Markets Assessing whether established tech hubs (e.g., Silicon Valley, Austin) still dominate hiring or if emerging locations are gaining traction. Comparing urban and rural job market dynamics for AI and non-AI careers, including wage disparities and employment opportunities. By examining these trends, this research aims to provide insights into the future of work, helping organizations and professionals adapt to an evolving job landscape influenced by AI adoption and remote work policies</p>
+</section>
+<section id="brief-literature-review" class="level2">
+<h2 class="anchored" data-anchor-id="brief-literature-review">Brief Literature Review</h2>
+<p>Recent studies highlight the evolving trends and challenges of remote work across industries. Hansen et al. <span class="citation" data-cites="hansen2023remote">(<a href="#ref-hansen2023remote" role="doc-biblioref">Hansen et al. (2023)</a>)</span> analyze remote work distribution, showing that high-skilled jobs have embraced remote work, particularly in the technology sector, whereas manual and service jobs remain on-site. Similarly, Gibson <span class="citation" data-cites="gibson2024employer">(<a href="#ref-gibson2024employer" role="doc-biblioref">Gibson (2024)</a>)</span> examines labor market dynamics in Silicon Valley, revealing how remote work is leveraged to attract and retain talent in competitive regions. These studies emphasize the growing divide in remote work opportunities based on job type and location.</p>
+<p>On the policy side, Olawale et al. <span class="citation" data-cites="olawale2024remote">(<a href="#ref-olawale2024remote" role="doc-biblioref">Olawale et al. (2024)</a>)</span> review IT sector remote work policies, stressing the importance of clear guidelines and technology infrastructure for efficiency and security. Meanwhile, Huang <span class="citation" data-cites="huang2024dynamics">(<a href="#ref-huang2024dynamics" role="doc-biblioref">Huang (2024)</a>)</span> explores how AI-driven industries reshape labor structures, further enabling remote work adoption. Together, these studies provide a comprehensive view of remote work’s trajectory, examining the key factors that drive its expansion and emphasizing the need for adaptive policies to keep pace with the evolving digital workforce.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
 <p>Meet the Team</p>
 <ul>
 <li>Ling Lu</li>
@@ -168,7 +234,22 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-gibson2024employer" class="csl-entry" role="listitem">
+<span class="smallcaps">Gibson, M.</span> (2024): <span>“<a href="https://doi.org/10.2139/ssrn.4765016">Employer market power in silicon valley</a>,”</span> <em>SSRN</em>,.
+</div>
+<div id="ref-hansen2023remote" class="csl-entry" role="listitem">
+<span class="smallcaps">Hansen, S., P. J. Lambert, N. Bloom, S. J. Davis, R. Sadun, and B. Taska</span>. (2023): <a href="https://www.nber.org/papers/w31007">Remote Work Across Jobs, Companies, and Space</a>,National Bureau of Economic Research.
+</div>
+<div id="ref-huang2024dynamics" class="csl-entry" role="listitem">
+<span class="smallcaps">Huang, X.</span> (2024): <span>“<a href="https://doi.org/10.1371/journal.pone.0295150">Dynamics of labor and capital in AI vs. Non-AI industries: A two-industry model analysis</a>,”</span> <em>PLoS ONE</em>, 19, e0295150.
+</div>
+<div id="ref-olawale2024remote" class="csl-entry" role="listitem">
+<span class="smallcaps">Olawale, O., F. A. Ajayi, C. A. Udeh, and O. A. Odejide</span>. (2024): <span>“<a href="https://fepbl.com/index.php/ijmer/article/view/1056">Remote work policies for IT professionals: Review of current practices and future trends</a>,”</span> <em>International Journal of Management &amp; Entrepreneurship Research</em>,.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

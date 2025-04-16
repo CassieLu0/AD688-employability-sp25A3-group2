@@ -46,5 +46,14 @@
   },
   "quarto_env/lib/python3.13/site-packages/pandas/tests/indexes/datetimes/test_indexing.py": {
     "test_indexing.html": "bdca1c8c"
+  },
+  "skill_gap_analysis.ipynb": {
+    "skill_gap_analysis.html": "96ead951"
+  },
+  "introduction.qmd": {
+    "introduction.html": "89120e47"
+  },
+  "data_analysis.ipynb": {
+    "data_analysis.html": "434c6bff"
   }
 }
