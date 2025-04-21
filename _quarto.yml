@@ -33,10 +33,10 @@ website:
         text: "Exploratory Data Analysis"
       - href: skill_gap_analysis.ipynb
         text: "Skill Gap Analysis"
-      - href: ml_methods.qmd/ipynb
-        text: "ML Methods"
-      - href: nlp_methods.qmd/ipynb
-        text: "NLP Methods"
+      - href: multiple_regression.ipynb
+        text: "Multiple Regression"
+      - href: kmeans_clustering.ipynb
+        text: "KMeans Clustering"
 format:
   html:
     theme: cosmo
