@@ -25,17 +25,10 @@ date: April 22, 2025
 format: docx
 ---
 
-```{include: index.qmd}
-```
-```{include: introduction.qmd}
-```
-```{include: data_analysis.ipynb}
-```
-```{include: skill_gap_analysis.ipynb}
-```
-```{include: multiple_regression.ipynb}
-```
-```{include: kmeans_clustering.ipynb}
-```
-```{include: Text_Analysis.ipynb}
-```
+{{< include index.qmd >}}
+{{< include introduction.qmd >}}
+{{< include data_analysis.ipynb >}}
+{{< include skill_gap_analysis.ipynb >}}
+{{< include multiple_regression.ipynb >}}
+{{< include kmeans_clustering.ipynb >}}
+{{< include Text_Analysis.ipynb >}}
