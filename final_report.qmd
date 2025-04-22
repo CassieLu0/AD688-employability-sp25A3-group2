@@ -1,0 +1,44 @@
+     ---
+     title: "Evaluating Personal Job Market Prospects in 2024"
+     subtitle: "Final Report"
+     author:
+     - name: Ling Lu
+         affiliations:
+         - ref: Boston University
+     affiliations:
+     - id: U15738240
+         name: Boston University
+         city: Boston
+         state: MA
+     author:
+     - name: Luoyan Zhang
+         affiliations:
+         - ref: Boston University
+     affiliations:
+     - id: U00607539
+         name: Boston University
+         city: Boston
+         state: MA
+     author:
+     - name: Yinuo Wang
+         affiliations:
+         - ref: Boston University
+     affiliations:
+     - id: U78839500
+         name: Boston University
+         city: Boston
+         state: MA
+     date: April 22 2025
+     date-modified: April 22 2025
+     date-format: long
+     format: 
+         docx: default
+     ---
+
+{{< include index.qmd >}}
+{{< include introduction.qmd >}}
+{{< include data_analysis.ipynb >}}
+{{< include skill_gap_analysis.ipynb >}}
+{{< include multiple_regression.ipynb >}}
+{{< include kmeans_clustering.ipynb >}}
+{{< include Text_Analysis.ipynb >}}
