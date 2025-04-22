@@ -10,10 +10,62 @@ website:
       - href: introduction.qmd
         text: Home
 
-format:
+format: 
   html:
-    theme: cosmo
+    bibliography: references.bib
     toc: true
+theme: default
+highlight-style: pygments
 ---
 
 Welcome to our comprehensive analysis of the 2024 job market trends, with a focus on the transformative impact of AI, salary disparities, and evolving employment patterns across various regions and industries. This website presents an in-depth exploration of job market data, including detailed insights into industry shifts, regional differences, and emerging skill demands. Additionally, we provide a thorough skill gap analysis, helping to bridge the divide between current team capabilities and the rapidly changing requirements of the IT job market. Join us in exploring how data-driven insights can shape career paths and workforce strategies in the modern job landscape.
+
+## 📂 About the Data
+
+The **Job Market Analysis 2024** is built on a carefully curated and cleaned dataset from Lightcast, covering over 70,000 job postings across the U.S. The dataset captures essential information across three dimensions:
+
+- **Job Postings**: Including roles, titles, company names, and employment types.  
+- **Industry Sectors**: Categorized by NAICS codes to highlight trends within specific fields.  
+- **Location Data**: Providing state and city-level insights to uncover regional disparities.  
+
+This rich, multidimensional dataset empowers us to examine how hiring, salaries, and required skills vary across both geography and job type.
+
+
+
+## 🧭 Introduction
+
+
+The job market in 2024 is undergoing a period of profound transformation, fueled by rapid advancements in artificial intelligence (AI) and the continued evolution of remote work. As AI-driven roles grow in prevalence, traditional career trajectories are being redefined, creating both new opportunities and complex challenges across sectors and regions. At the same time, the increasing flexibility of remote work is reshaping workforce dynamics—affecting where professionals choose to live and how organizations approach hiring.
+
+This report explores these changes through a comprehensive analysis of the lightcast_job_postings.csv dataset, with a focus on Geographic and Remote Work Analysis. Our goal is to understand the key factors influencing job availability, location-based salary trends, and the growing importance of remote work across industries. To achieve this, we conducted several forms of data analysis including skill gap analysis among group members, multiple regression modeling (using both Multiple Linear Regression and Random Forest Regression), K-Means clustering for pattern discovery, and text analysis of job descriptions via TF-IDF and Naive Bayes classification.
+
+Visualizations accompany each analytical component to enhance interpretation and communicate insights clearly. The report concludes with practical recommendations for job seekers, offering guidance on navigating the shifting employment landscape shaped by technology and workplace flexibility.
+
+
+
+## 🎯 Research Rationale
+
+This project focuses on three core questions:
+
+1. **Geographic Distribution of AI vs. Non-AI Job Growth**  
+   We analyze which U.S. states and cities are seeing surges in AI-related hiring and how those trends compare to traditional roles. We also explore how AI is transforming job availability across different industries.
+
+2. **Remote Work Trends Across Industries**  
+   By classifying job postings as remote, hybrid, or on-site, we examine how remote work adoption varies by sector. We further evaluate how hybrid models are shaping employer flexibility and employee mobility.
+
+3. **The Evolution of Tech Hubs and Regional Job Markets**  
+   Are dominant tech centers like **Silicon Valley** still leading hiring, or are **emerging hubs** capturing more growth? We compare urban vs. rural job patterns, highlighting both salary and access disparities between regions.
+
+Together, these themes offer a comprehensive look at how **technology and flexibility** are redefining modern employment.
+
+
+
+## 📚 Brief Literature Review
+
+Huang (2024) explores how AI reshapes the labor market and enables remote-first hiring strategies [@huang2024dynamics]. 
+
+Olawale et al. (2024) emphasize the importance of remote work policies and infrastructure in the IT sector [@olawale2024remote].
+
+According to Hansen et al. (2023), high-skilled jobs are more likely to shift to remote formats, while manual jobs remain location-bound [@hansen2023remote].
+
+Gibson (2024) highlights how employers in Silicon Valley use remote flexibility to attract and retain talent [@gibson2024employer].

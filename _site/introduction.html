@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -38,10 +57,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-4f17641596142cbde708c01b3a465e62.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-991b3836a482b2004fac36c162086f17.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -129,8 +148,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#about-the-data" id="toc-about-the-data" class="nav-link active" data-scroll-target="#about-the-data">📂 About the Data</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">🧭 Introduction</a></li>
+  <li><a href="#research-rationale" id="toc-research-rationale" class="nav-link" data-scroll-target="#research-rationale">🎯 Research Rationale</a></li>
+  <li><a href="#brief-literature-review" id="toc-brief-literature-review" class="nav-link" data-scroll-target="#brief-literature-review">📚 Brief Literature Review</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -183,10 +211,62 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Welcome to our comprehensive analysis of the 2024 job market trends, with a focus on the transformative impact of AI, salary disparities, and evolving employment patterns across various regions and industries. This website presents an in-depth exploration of job market data, including detailed insights into industry shifts, regional differences, and emerging skill demands. Additionally, we provide a thorough skill gap analysis, helping to bridge the divide between current team capabilities and the rapidly changing requirements of the IT job market. Join us in exploring how data-driven insights can shape career paths and workforce strategies in the modern job landscape.</p>
+<section id="about-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="about-the-data">📂 About the Data</h2>
+<p>The <strong>Job Market Analysis 2024</strong> is built on a carefully curated and cleaned dataset from Lightcast, covering over 70,000 job postings across the U.S. The dataset captures essential information across three dimensions:</p>
+<ul>
+<li><strong>Job Postings</strong>: Including roles, titles, company names, and employment types.<br>
+</li>
+<li><strong>Industry Sectors</strong>: Categorized by NAICS codes to highlight trends within specific fields.<br>
+</li>
+<li><strong>Location Data</strong>: Providing state and city-level insights to uncover regional disparities.</li>
+</ul>
+<p>This rich, multidimensional dataset empowers us to examine how hiring, salaries, and required skills vary across both geography and job type.</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">🧭 Introduction</h2>
+<p>The job market in 2024 is undergoing a period of profound transformation, fueled by rapid advancements in artificial intelligence (AI) and the continued evolution of remote work. As AI-driven roles grow in prevalence, traditional career trajectories are being redefined, creating both new opportunities and complex challenges across sectors and regions. At the same time, the increasing flexibility of remote work is reshaping workforce dynamics—affecting where professionals choose to live and how organizations approach hiring.</p>
+<p>This report explores these changes through a comprehensive analysis of the lightcast_job_postings.csv dataset, with a focus on Geographic and Remote Work Analysis. Our goal is to understand the key factors influencing job availability, location-based salary trends, and the growing importance of remote work across industries. To achieve this, we conducted several forms of data analysis including skill gap analysis among group members, multiple regression modeling (using both Multiple Linear Regression and Random Forest Regression), K-Means clustering for pattern discovery, and text analysis of job descriptions via TF-IDF and Naive Bayes classification.</p>
+<p>Visualizations accompany each analytical component to enhance interpretation and communicate insights clearly. The report concludes with practical recommendations for job seekers, offering guidance on navigating the shifting employment landscape shaped by technology and workplace flexibility.</p>
+</section>
+<section id="research-rationale" class="level2">
+<h2 class="anchored" data-anchor-id="research-rationale">🎯 Research Rationale</h2>
+<p>This project focuses on three core questions:</p>
+<ol type="1">
+<li><p><strong>Geographic Distribution of AI vs.&nbsp;Non-AI Job Growth</strong><br>
+We analyze which U.S. states and cities are seeing surges in AI-related hiring and how those trends compare to traditional roles. We also explore how AI is transforming job availability across different industries.</p></li>
+<li><p><strong>Remote Work Trends Across Industries</strong><br>
+By classifying job postings as remote, hybrid, or on-site, we examine how remote work adoption varies by sector. We further evaluate how hybrid models are shaping employer flexibility and employee mobility.</p></li>
+<li><p><strong>The Evolution of Tech Hubs and Regional Job Markets</strong><br>
+Are dominant tech centers like <strong>Silicon Valley</strong> still leading hiring, or are <strong>emerging hubs</strong> capturing more growth? We compare urban vs.&nbsp;rural job patterns, highlighting both salary and access disparities between regions.</p></li>
+</ol>
+<p>Together, these themes offer a comprehensive look at how <strong>technology and flexibility</strong> are redefining modern employment.</p>
+</section>
+<section id="brief-literature-review" class="level2">
+<h2 class="anchored" data-anchor-id="brief-literature-review">📚 Brief Literature Review</h2>
+<p>Huang (2024) explores how AI reshapes the labor market and enables remote-first hiring strategies <span class="citation" data-cites="huang2024dynamics">(<a href="#ref-huang2024dynamics" role="doc-biblioref">Huang (2024)</a>)</span>.</p>
+<p>Olawale et al.&nbsp;(2024) emphasize the importance of remote work policies and infrastructure in the IT sector <span class="citation" data-cites="olawale2024remote">(<a href="#ref-olawale2024remote" role="doc-biblioref">Olawale et al. (2024)</a>)</span>.</p>
+<p>According to Hansen et al.&nbsp;(2023), high-skilled jobs are more likely to shift to remote formats, while manual jobs remain location-bound <span class="citation" data-cites="hansen2023remote">(<a href="#ref-hansen2023remote" role="doc-biblioref">Hansen et al. (2023)</a>)</span>.</p>
+<p>Gibson (2024) highlights how employers in Silicon Valley use remote flexibility to attract and retain talent <span class="citation" data-cites="gibson2024employer">(<a href="#ref-gibson2024employer" role="doc-biblioref">Gibson (2024)</a>)</span>.</p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-gibson2024employer" class="csl-entry" role="listitem">
+<span class="smallcaps">Gibson, M.</span> (2024): <span>“<a href="https://doi.org/10.2139/ssrn.4765016">Employer market power in silicon valley</a>,”</span> <em>SSRN</em>,.
+</div>
+<div id="ref-hansen2023remote" class="csl-entry" role="listitem">
+<span class="smallcaps">Hansen, S., P. J. Lambert, N. Bloom, S. J. Davis, R. Sadun, and B. Taska</span>. (2023): <a href="https://www.nber.org/papers/w31007">Remote Work Across Jobs, Companies, and Space</a>,National Bureau of Economic Research.
+</div>
+<div id="ref-huang2024dynamics" class="csl-entry" role="listitem">
+<span class="smallcaps">Huang, X.</span> (2024): <span>“<a href="https://doi.org/10.1371/journal.pone.0295150">Dynamics of labor and capital in AI vs. Non-AI industries: A two-industry model analysis</a>,”</span> <em>PLoS ONE</em>, 19, e0295150.
+</div>
+<div id="ref-olawale2024remote" class="csl-entry" role="listitem">
+<span class="smallcaps">Olawale, O., F. A. Ajayi, C. A. Udeh, and O. A. Odejide</span>. (2024): <span>“<a href="https://fepbl.com/index.php/ijmer/article/view/1056">Remote work policies for IT professionals: Review of current practices and future trends</a>,”</span> <em>International Journal of Management &amp; Entrepreneurship Research</em>,.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
