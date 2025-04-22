@@ -55,5 +55,14 @@
   },
   "data_analysis.ipynb": {
     "data_analysis.html": "434c6bff"
+  },
+  "kmeans_clustering.ipynb": {
+    "kmeans_clustering.html": "17df6618"
+  },
+  "multiple_regression.ipynb": {
+    "multiple_regression.html": "a2c10520"
+  },
+  "Text_Analysis.ipynb": {
+    "Text_Analysis.html": "bf255525"
   }
 }

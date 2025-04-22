@@ -37,6 +37,8 @@ website:
         text: "Multiple Regression"
       - href: kmeans_clustering.ipynb
         text: "KMeans Clustering"
+      - href: Text_Analysis.ipynb
+        text: "Text Analysis"
 format:
   html:
     theme: cosmo
