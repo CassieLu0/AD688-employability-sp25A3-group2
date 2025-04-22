@@ -1,5 +1,5 @@
 ---
-title: "2024 Job Trends"
+title: "2024 Job Trends Analysis"
 author:
   - Ling Lu
   - Luoyan Zhang
@@ -7,8 +7,6 @@ author:
 date: "Feb 6, 2025"
 format: 
   html:
-    bibliography: references.bib
-    csl: csl/econometrica.csl
     toc: true
 theme: default
 highlight-style: pygments
@@ -23,7 +21,7 @@ This website provides an in-depth analysis of job trends for 2024 based on the l
 - Job Demand: Trends in job postings and market demands.
 - Regional Variations: How different regions are impacted.
 
-## Job Market Analysis 2024 – Summary
+## 📊 Job Market Outlook: Summary & Insights
 
 This project presents a comprehensive analysis of the 2024 job market using data from Lightcast, with a focus on geographic and remote work trends. Through exploratory data analysis, multiple regression, clustering, skill gap mapping, and text mining, we uncovered critical insights shaping employment opportunities. Our multiple regression model identified experience and job title as the strongest predictors of salary, with high-earning roles concentrated in states like California, New York, and Connecticut. KMeans clustering revealed that certain job types—particularly those in Cluster 1—are associated with significantly higher compensation and often appear in tech-dense regions. Our skill gap analysis showed alignment between in-demand skills (e.g., SQL, Python, Tableau) and the team's current strengths, while also revealing areas for upskilling in cloud technologies and Linux. Finally, text analysis of job descriptions emphasized the importance of not just technical expertise but also teamwork, communication, and real-world project experience.
 

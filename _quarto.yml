@@ -43,8 +43,9 @@ website:
 
 format:
   html:
-    theme: cosmo
-    toc: true
+   theme: default
+   highlight-style: pygments
+   toc: true
 
 
 execute:

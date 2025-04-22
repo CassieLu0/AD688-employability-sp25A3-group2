@@ -13,7 +13,6 @@ website:
 format: 
   html:
     bibliography: references.bib
-    csl: csl/econometrica.csl
     toc: true
 theme: default
 highlight-style: pygments
@@ -35,9 +34,13 @@ This rich, multidimensional dataset empowers us to examine how hiring, salaries,
 
 ## 🧭 Introduction
 
-The job market in 2024 is undergoing rapid transformation, shaped by the acceleration of **artificial intelligence (AI)** adoption and the widespread shift toward **remote and hybrid work models**. Traditional career pathways are evolving, and new tech-driven roles are emerging in their place. This dynamic landscape not only changes how and where professionals work—it also shifts how organizations approach hiring and workforce development.
 
-In this context, **geographic and remote work analysis** becomes essential. Understanding how opportunities vary across regions and which industries are most affected by remote trends allows stakeholders to make more informed decisions. Whether it’s a policymaker evaluating regional job resilience or a recent graduate choosing where to live and work, our analysis provides actionable insight into these shifts.
+The job market in 2024 is undergoing a period of profound transformation, fueled by rapid advancements in artificial intelligence (AI) and the continued evolution of remote work. As AI-driven roles grow in prevalence, traditional career trajectories are being redefined, creating both new opportunities and complex challenges across sectors and regions. At the same time, the increasing flexibility of remote work is reshaping workforce dynamics—affecting where professionals choose to live and how organizations approach hiring.
+
+This report explores these changes through a comprehensive analysis of the lightcast_job_postings.csv dataset, with a focus on Geographic and Remote Work Analysis. Our goal is to understand the key factors influencing job availability, location-based salary trends, and the growing importance of remote work across industries. To achieve this, we conducted several forms of data analysis including skill gap analysis among group members, multiple regression modeling (using both Multiple Linear Regression and Random Forest Regression), K-Means clustering for pattern discovery, and text analysis of job descriptions via TF-IDF and Naive Bayes classification.
+
+Visualizations accompany each analytical component to enhance interpretation and communicate insights clearly. The report concludes with practical recommendations for job seekers, offering guidance on navigating the shifting employment landscape shaped by technology and workplace flexibility.
+
 
 
 ## 🎯 Research Rationale
@@ -59,8 +62,10 @@ Together, these themes offer a comprehensive look at how **technology and flexib
 
 ## 📚 Brief Literature Review
 
-Our research is grounded in recent academic and policy-oriented studies. **Hansen et al. (2023)** document the divide between high-skilled remote-capable jobs and manual/service-based roles that remain location-bound. **Gibson (2024)** highlights how *Silicon Valley employers* use remote flexibility as a competitive hiring tool.
+Huang (2024) explores how AI reshapes the labor market and enables remote-first hiring strategies [@huang2024dynamics]. 
 
-On the policy side, **Olawale et al. (2024)** emphasize the need for clear remote work standards and infrastructure within IT fields. Complementing this, **Huang (2024)** explores how AI influences labor distribution, revealing that automation not only changes job roles—but also enables broader adoption of *remote-first hiring strategies*.
+Olawale et al. (2024) emphasize the importance of remote work policies and infrastructure in the IT sector [@olawale2024remote].
 
-Collectively, these works frame the foundation for our empirical analysis and reinforce the urgency of understanding geographic and technological factors shaping the future of work.
+According to Hansen et al. (2023), high-skilled jobs are more likely to shift to remote formats, while manual jobs remain location-bound [@hansen2023remote].
+
+Gibson (2024) highlights how employers in Silicon Valley use remote flexibility to attract and retain talent [@gibson2024employer].
