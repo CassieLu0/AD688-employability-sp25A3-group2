@@ -1,3 +1,8 @@
 /.quarto/
 lightcast_job_postings.csv
 _site/
+lightcast_job_postings.csv
+.venv/
+
+venv/
+lightcast_job_postings.csv
