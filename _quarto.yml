@@ -39,10 +39,14 @@ website:
         text: "KMeans Clustering"
       - href: Text_Analysis.ipynb
         text: "Text Analysis"
+
+
 format:
   html:
     theme: cosmo
     toc: true
+
+
 execute:
   echo: true
   eval: true
