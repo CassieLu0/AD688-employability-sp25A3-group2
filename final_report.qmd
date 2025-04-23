@@ -26,9 +26,15 @@ format: docx
 ---
 
 {{< include index.qmd >}}
+
 {{< include introduction.qmd >}}
-{{< include data_analysis.ipynb >}}
-{{< include skill_gap_analysis.ipynb >}}
-{{< include multiple_regression.ipynb >}}
-{{< include kmeans_clustering.ipynb >}}
-{{< include Text_Analysis.ipynb >}}
+
+{{< embed data_analysis.ipynb >}}
+
+{{< embed skill_gap_analysis.ipynb >}}
+
+{{< embed multiple_regression.ipynb >}}
+
+{{< embed kmeans_clustering.ipynb >}}
+
+{{< embed Text_Analysis.ipynb >}}
