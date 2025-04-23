@@ -1,0 +1,57 @@
+project:
+  type: website
+  output-dir: docs
+
+author:
+  - name: Ling Lu
+    affiliations:
+      - id: U15738240
+        name: Boston University
+        city: Boston
+        state: MA
+  - name: Luoyan Zhang
+    affiliations:
+      - id: U00607539
+        name: Boston University
+        city: Boston
+        state: MA
+  - name: Yinuo Wang
+    affiliations:
+      - id: U78839500
+        name: Boston University
+        city: Boston
+        state: MA
+
+website:
+  title: "Job Market Analysis 2024"
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Home"
+      - href: introduction.qmd
+        text: "Introduction"
+      - href: data_analysis.ipynb
+        text: "Exploratory Data Analysis"
+      - href: skill_gap_analysis.ipynb
+        text: "Skill Gap Analysis"
+      - href: multiple_regression.ipynb
+        text: "Multiple Regression"
+      - href: kmeans_clustering.ipynb
+        text: "KMeans Clustering"
+      - href: Text_Analysis.ipynb
+        text: "Text Analysis"
+
+
+format:
+  html:
+   theme: default
+   highlight-style: pygments
+   toc: true
+
+
+execute:
+  echo: true
+  eval: true
+  code-fold: true
+bibliography: references.bib
+csl: csl/econometrica.csl
